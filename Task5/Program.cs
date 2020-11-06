@@ -67,7 +67,6 @@ namespace Task5
                 TwoDimArray.WriteArrayToFile(array, arrayPath);
                 //TwoDimArray fileArray = TwoDimArray.ReadArrayFromFile(arrayPath);
                 TwoDimArray fileArray = new TwoDimArray(arrayPath);
-
                 File.Delete(arrayPath);
 
                 Console.WriteLine("Считанный массив");

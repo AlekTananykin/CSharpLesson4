@@ -44,7 +44,6 @@ namespace Task5
             }
         }
 
-
         public TwoDimArray(int rows, int columns,
             int minValue, int maxValue)
         {
