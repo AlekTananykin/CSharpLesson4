@@ -52,7 +52,23 @@ namespace Task3
             array.Multi(factor);
             PrintMyArray(array);
 
+            Console.WriteLine("\nНовый массив случайных чисел");
+
+            RandomFillMyArray(array);
+            PrintMyArray(array);
+
+            PrintFrequency(array);
+
             Console.ReadKey();
+        }
+
+        private static void RandomFillMyArray(MyArray array)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < array.Length; ++i)
+            {
+                array[i] = rnd.Next(-10, 10);
+            }
         }
 
         private static void PrintMyArray(MyArray array)
@@ -64,6 +80,28 @@ namespace Task3
                     Console.WriteLine();
             }
             Console.WriteLine();
+        }
+
+        private static void PrintFrequency(MyArray array)
+        {
+            Console.WriteLine(
+                "\nЧастоту вхождения каждого элемента в массив. ");
+            Dictionary<int, int> frequencies = new Dictionary<int, int>();
+            
+            for (int i = 0; i < array.Length; ++i)
+            {
+                int item = array[i];
+                if (!frequencies.ContainsKey(item))
+                    frequencies.Add(item, 1);
+                else
+                    frequencies[item] += 1;
+            }
+
+            foreach (KeyValuePair<int, int> kvp in frequencies)
+            {
+                Console.WriteLine(
+                    "Element = {0}; Count = {1}", kvp.Key, kvp.Value);
+            }
         }
     }
 }
